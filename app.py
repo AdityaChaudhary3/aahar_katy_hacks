@@ -85,9 +85,8 @@ def profile():
 @app.route("/user")
 def takefood():
     try:
-        if session["role"] == 1 or session["role"]=="1":
-            rows = db.execute("SELECT * from food_item;")
-            return render_template("foodtake.html",values=rows)
+        rows = db.execute("SELECT * from food_item;")
+        return render_template("foodtake.html",values=rows)
     except:
         pass
     return render_template("login.html")

@@ -49,6 +49,7 @@
             <th>Item Name</th>
             <th>Item Quantity</th>
             <th>Item Type</th>
+            <th>Address</th>
         </tr>
         </thead>
        <tbody>
@@ -60,6 +61,7 @@
                   <td scope="row" style="text-align: center;">{{ value.food_name }}</td>
                   <td scope="row" style="text-align: center;">{{ value.quantity }}</td>              
                   <td scope="row" style="text-align: center;">{{ value.type.upper() }}</td>              
+                  <td scope="row" style="text-align: center;">{{ value.address }}</td>              
             </tr>
           {% endfor %}
     
