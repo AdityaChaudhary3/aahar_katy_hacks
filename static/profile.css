@@ -72,7 +72,7 @@ th,td{
 
 }
 .table-wrapper{
-    max-height: 130px;
+    max-height: 50%;
     overflow-y: scroll;
 
 }

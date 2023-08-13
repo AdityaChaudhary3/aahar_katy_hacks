@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Aahar | Signup</title>
     <link rel="stylesheet" href="../static/loginstyle.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -17,15 +17,28 @@
     <div class="container">
     <div class="regform">
        
-        <form action="/login" method="post">
+        <form action="/signup" method="post">
             <p class="logo">Food <b style="color: #06C167;">Donate</b></p>
             
             <p id="heading">Create your account</p>
             
              <div class="input">
+                <label class="textlabel" for="fname">First Name</label>
+                <input type="text" id="fname" name="fname">
+             </div>
+             <div class="input">
+                <label class="textlabel" for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname">
+             </div>
+             <div class="input">
+                <label class="textlabel" for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+             </div>
+             <div class="input">
                 <label class="textlabel" for="email">Email</label>
                 <input type="email" id="email" name="email">
              </div>
+             
              <label class="textlabel" for="password">Password</label>
              <div class="password">
               
@@ -34,15 +47,12 @@
                 <i class="bi bi-eye-slash" id="showpassword"></i> 
              </div>
     
-             <div class="radio">
-
-             </div>
              <div class="btn">
-                <button type="submit" name="sign">Login</button>
+                <button type="submit" name="sign">Signup</button>
              </div>
                 
             <div class="signin-up">
-                 <p style="font-size: 20px; text-align: center;">Already have an account? <a href="login.html"> Sign in</a></p>
+                 <p style="font-size: 20px; text-align: center;">Already have an account? <a href="/login"> Sign in</a></p>
              </div>
          
 

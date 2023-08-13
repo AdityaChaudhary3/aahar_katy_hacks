@@ -4,27 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aahar | Home</title>
     <link rel="stylesheet" href="../static/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo">Food <b style="color: #06C167;">Donate</b></div>
-        <div class="hamburger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
-        <nav class="nav-bar">
-            <ul>
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="about.html" >About</a></li>
-                <li><a href="contact.html" >Contact</a></li>
-                <li><a href="profile.html" >Profile</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">Food <b style="color: #06C167;">Donate</b></div>
+    <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <nav class="nav-bar">
+        <ul>
+          {% if session["user_id"] %}
+            <li><a href="#" >Profile</a></li>
+            <li><a href="/logout" >Log Out</a></li>
+          {% endif %}
+          {% if not session["user_id"] %}
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/about" >About</a></li>
+          <li><a href="/contact" >Contact</a></li>
+          <li><a href="/login" >Login</a></li>
+          <li><a href="/Signup" >Signup</a></li>
+          {% endif %}
+
+        </ul>
+    </nav>
+</header>
     <script>
         hamburger=document.querySelector(".hamburger");
         hamburger.onclick =function(){
@@ -33,7 +41,7 @@
         }
     </script>
     <section class="banner">
-        <a href="fooddonate.html">Dontae Food</a>
+        <a href="/donate">Donate Food</a>
     </section>
     <div class="content">
         <!-- <h2>Love Food</h2>
@@ -104,10 +112,10 @@
         <div class="footer-right col-md-4 col-sm-6">
           <h2> Food<span> Donate</span></h2>
           <p class="menu">
-            <a href="#"> Home</a> |
-            <a href="#"> About</a> |
-            <a href="#"> Services</a> |
-            <a href="#"> Contact</a>
+            <a href="/"> Home</a> |
+            <a href="/about"> About</a> |
+            <a href="/donate"> Donate</a> |
+            <a href="/contact"> Contact</a>
           </p>
           <p class="name"> Food Donate &copy; 2023</p>
         </div>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aahar | Donate</title>
+  <link rel="stylesheet" href="../static/loginstyle.css">
+  <link rel="stylesheet" href="../static/home.css">
+  <!-- <link rel="stylesheet" href="../static/chatbot.css"> -->
+</head>
+
+<body style="font-family:  'Poppins', sans-serif;">
+  <header>
+    <div class="logo">Food <b style="color: #06C167;">Donate</b></div>
+    <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <nav class="nav-bar">
+        <ul>
+          {% if session["user_id"] %}
+            <li><a href="/profile" >Profile</a></li>
+            <li><a href="/logout" >Log Out</a></li>
+          {% endif %}
+          {% if not session["user_id"] %}
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/about" >About</a></li>
+          <li><a href="/contact" >Contact</a></li>
+          <li><a href="/login" >Login</a></li>
+          <li><a href="/Signup" >Signup</a></li>
+          {% endif %}
+
+        </ul>
+    </nav>
+</header>
+  <div class="container">
+    <div class="regform">
+
+      <form action="/donate" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="email">Donor Id:</label>
+        <input type="text" readonly value="{{session['user_id']}}"><br>
+
+        <label for="age">Quantity:</label>
+        <input type="number" name="quantity" min="1" required><br>
+
+        <label for="country">Food Type:</label>
+        <select name="type">
+          <option value="veg">Vegeterian</option>
+          <option value="nonveg">Non Vegeterian</option>
+        </select><br>
+        <label for="address">Address:</label>
+        <input type="text" name="address" required><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-left col-md-4 col-sm-6">
+      <p class="about">
+        <span> About us</span>The basic concept of this project Food Waste Management is to collect the excess/leftover
+        food from donors such as hotels, restaurants, marriage halls , etc and distribute to the needy people .
+      </p>
+
+    </div>
+    <div class="footer-center col-md-4 col-sm-6">
+      <div>
+        <p><span> Contact</span> </p>
+
+      </div>
+      <div>
+
+        <p> (+00) 0000 000 000</p>
+
+      </div>
+      <div>
+
+        <p><a href="#"> Fooddonate@gmail.com</a></p>
+      </div>
+      <div class="sociallist">
+        <ul class="social">
+          <li><a href="#"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
+          <li><a href="#"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+          <li><a href="#"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+          <li><a href="https://github.com/kishor-23"><i class="fa fa-github"
+                style="font-size:50px;color: black;"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-right col-md-4 col-sm-6">
+      <h2> Food<span> Donate</span></h2>
+      <p class="menu">
+        <a href="/"> Home</a> |
+        <a href="/about"> About</a> |
+        <a href="/donate"> Donate</a> |
+        <a href="/contact"> Contact</a>
+      </p>
+      <p class="name"> Food Donate &copy; 2023</p>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

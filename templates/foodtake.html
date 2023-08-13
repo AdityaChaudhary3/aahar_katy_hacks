@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aahar | FoodTake</title>
+    <link rel="stylesheet" href="../static/loginstyle.css">
+    <link rel="stylesheet" href="../static/home.css">
+    <link rel="stylesheet" href="../static/profile.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+   
+    
+</head>
+<body>
+
+  <header>
+    <div class="logo">Food <b style="color: #06C167;">Donate</b></div>
+    <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <nav class="nav-bar">
+        <ul>
+          {% if session["user_id"] %}
+            <li><a href="/logout" >Log Out</a></li>
+          {% endif %}
+          {% if not session["user_id"] %}
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/about" >About</a></li>
+          <li><a href="/contact" >Contact</a></li>
+          <li><a href="/login" >Login</a></li>
+          <li><a href="/Signup" >Signup</a></li>
+          {% endif %}
+
+        </ul>
+    </nav>
+</header>
+
+       <div class="table-container">
+         <!-- <p id="heading">donated</p> -->
+         <div class="table-wrapper">
+        <table class="table">
+        <thead>
+        <tr>
+            <th>Item Name</th>
+            <th>Item Quantity</th>
+            <th>Item Type</th>
+        </tr>
+        </thead>
+       <tbody>
+
+      <tbody>
+
+          {% for value in values %}
+            <tr>
+                  <td scope="row" style="text-align: center;">{{ value.food_name }}</td>
+                  <td scope="row" style="text-align: center;">{{ value.quantity }}</td>              
+                  <td scope="row" style="text-align: center;">{{ value.type.upper() }}</td>              
+            </tr>
+          {% endfor %}
+    
+        </tbody>
+    </table>
+         </div>
+   </div>
+    <script src="../static/login.js"></script>
+       
+</body>
+</html>
